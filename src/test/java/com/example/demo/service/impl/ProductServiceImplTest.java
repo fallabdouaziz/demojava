@@ -115,7 +115,7 @@ class ProductServiceImplTest {
         product.setName("savon");
        given(productRepository.findById(anyInt())).willReturn(Optional.empty());
        assertThatThrownBy(() -> productServiceImpl.deleteProduct(product.getId()))
-               .isInstanceOf(UserNotFoundException.class)
-               .hasMessageContaining(String.format("User with id : %d not found",product.getId()));
+               .isInstanceOf(ProductNotFoundException.class)
+               .hasMessageContaining(String.format("product with id : %d not found",product.getId()));
     }
 }
